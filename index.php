@@ -560,6 +560,7 @@ if (isset($_POST['login'])) {
     // Aqui você pode adicionar outros efeitos se desejar
     console.log('Página carregada com sucesso!');
   });
+  // 
 </script>
 <!-- commit -->
 </body>
