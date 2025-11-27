@@ -11,7 +11,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <style>
+ <style>
     :root {
       --primary: #e50914;
       --primary-dark: #b2070f;
@@ -67,16 +67,17 @@
 
     .content-wrapper {
       background: transparent !important;
-      padding: 20px;
+      padding: 20px 10px;
       position: relative;
       z-index: 1;
     }
 
-    /* Header Styles */
+    /* Header Styles - ALINHADO À ESQUERDA */
     .content-header {
       position: relative;
       padding: 20px 0;
       margin-bottom: 30px;
+      text-align: left;
     }
 
     .content-header::before {
@@ -98,6 +99,7 @@
       margin-bottom: 10px;
       position: relative;
       display: inline-block;
+      text-align: left;
     }
 
     .content-header h1::after {
@@ -105,7 +107,7 @@
       position: absolute;
       bottom: -5px;
       left: 0;
-      width: 50%;
+      width: 100px;
       height: 2px;
       background: var(--primary);
     }
@@ -114,6 +116,8 @@
       color: var(--gray);
       font-size: 1.1rem;
       max-width: 600px;
+      margin: 0;
+      text-align: left;
     }
 
     /* Card Styles */
@@ -127,6 +131,7 @@
       position: relative;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 1px solid var(--card-border);
+      margin-bottom: 30px;
     }
 
     .custom-card:hover {
@@ -173,6 +178,7 @@
       font-size: 1.4rem;
       position: relative;
       z-index: 1;
+      text-align: left;
     }
 
     .card-body-custom {
@@ -194,6 +200,7 @@
       gap: 10px;
       font-family: 'Montserrat', sans-serif;
       font-size: 0.95rem;
+      text-align: left;
     }
 
     .form-control-custom {
@@ -308,7 +315,76 @@
       color: var(--light);
     }
 
-    /* Movie Cards */
+    /* CONTAINER DA IMAGEM CORRIGIDO - MAIS LARGO */
+    .movie-card-img-container {
+      position: relative;
+      overflow: hidden;
+      height: 320px; /* Altura reduzida para ficar mais proporcional */
+      border-radius: 12px 12px 0 0;
+    }
+
+    .movie-card-img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center center; /* Centraliza melhor a imagem */
+      transition: transform 0.5s ease;
+    }
+
+    /* Overlay para o nome do filme CORRIGIDO */
+    .movie-card-overlay {
+      background: linear-gradient(transparent 10%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.95));
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 40px 15px 15px 15px; /* Padding reduzido */
+      text-align: left;
+    }
+
+    .movie-card-title {
+      color: var(--light);
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem; /* Tamanho reduzido */
+      margin: 0;
+      text-align: left;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+      line-height: 1.2;
+      letter-spacing: 0.5px;
+    }
+
+    /* Informações do filme CORRIGIDAS */
+    .movie-info {
+      color: var(--light);
+      font-size: 0.85rem; /* Tamanho reduzido */
+      padding: 15px 12px; /* Padding reduzido */
+      background: rgba(15, 15, 15, 0.95);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: left;
+    }
+
+    .movie-info p {
+      margin-bottom: 8px; /* Espaço reduzido */
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      line-height: 1.3;
+      text-align: left;
+    }
+
+    .movie-info b {
+      color: var(--secondary);
+      font-weight: 600;
+      min-width: 80px; /* Largura reduzida */
+      font-size: 0.8rem;
+    }
+
+    .movie-info .small {
+      font-size: 0.8rem;
+    }
+
+    /* Card completo CORRIGIDO */
     .movie-card {
       border: none;
       border-radius: 12px;
@@ -319,54 +395,62 @@
       height: 100%;
       position: relative;
       border: 1px solid var(--card-border);
+      margin: 0 0 2rem 0;
+      display: flex;
+      flex-direction: column;
     }
 
     .movie-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(229, 9, 20, 0.15);
-    }
-
-    .movie-card-img-container {
-      position: relative;
-      overflow: hidden;
-      height: 300px;
-    }
-
-    .movie-card-img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(229, 9, 20, 0.2);
     }
 
     .movie-card:hover .movie-card-img {
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
 
-    .movie-card-overlay {
-      background: linear-gradient(transparent 30%, rgba(0,0,0,0.9));
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 20px;
+    /* Footer do card */
+    .card-footer:last-child {
+      background: rgba(10, 10, 10, 0.95) !important;
+      border-top: 1px solid var(--card-border) !important;
+      padding: 12px !important; /* Padding reduzido */
+      text-align: left;
+      margin-top: auto;
     }
 
-    .movie-card-title {
-      color: var(--light);
+    /* Badge estilo Centerplex */
+    .badge {
       font-weight: 600;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.1rem;
-      margin: 0;
+      font-size: 0.8rem; /* Tamanho reduzido */
+      padding: 6px 12px; /* Padding reduzido */
+      border-radius: 20px;
+      letter-spacing: 0.5px;
     }
 
-    .movie-info {
-      color: var(--gray);
-      font-size: 0.9rem;
+    /* FILMES COM LAYOUT CORRIGIDO */
+    .col-md-6.col-lg-4 {
+      flex: 0 0 auto;
+      width: 100%;
+      padding-left: 0 !important;
     }
 
-    .movie-info b {
-      color: var(--light);
+    @media (min-width: 576px) {
+      .col-md-6.col-lg-4 {
+        width: 50%;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .col-md-6.col-lg-4 {
+        width: 33.333%;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .col-md-6.col-lg-4 {
+        width: 25%;
+        padding: 0 12px 0 0 !important;
+      }
     }
 
     /* Alert Styles */
@@ -377,6 +461,7 @@
       margin-bottom: 1.5rem;
       font-family: 'Inter', sans-serif;
       backdrop-filter: blur(10px);
+      text-align: left;
     }
 
     .alert-success-custom {
@@ -391,15 +476,7 @@
       border-left: 4px solid #dc3545;
     }
 
-    /* Badge refinado */
-    .badge {
-      font-weight: 500;
-      font-size: 0.8rem;
-      padding: 6px 12px;
-      border-radius: 6px;
-    }
-
-    /* Ajustes de responsividade */
+    /* Melhorar responsividade */
     @media (max-width: 768px) {
       .content-header h1 {
         font-size: 2.2rem;
@@ -411,20 +488,15 @@
       .card-body-custom {
         padding: 1.5rem;
       }
-    }
-
-    /* Ajuste para alinhamento */
-    .container-fluid.ps-0 {
-      margin-left: -15px;
-    }
-
-    .content-wrapper {
-      margin-left: -10px;
-    }
-
-    /* Melhorar a legibilidade do texto */
-    p, span, div {
-      line-height: 1.6;
+      .movie-card-img-container {
+        height: 280px;
+      }
+      .movie-card-title {
+        font-size: 1.1rem;
+      }
+      .movie-info {
+        padding: 12px 10px;
+      }
     }
 
     /* Efeito de brilho nos ícones */
@@ -453,49 +525,9 @@
       pointer-events: none;
     }
 
-    /* Efeito de loading sutil */
-    .loading-dots {
-      display: inline-block;
-      position: relative;
-      width: 80px;
-      height: 80px;
-    }
-    .loading-dots div {
-      position: absolute;
-      top: 33px;
-      width: 13px;
-      height: 13px;
-      border-radius: 50%;
-      background: var(--primary);
-      animation-timing-function: cubic-bezier(0, 1, 1, 0);
-    }
-    .loading-dots div:nth-child(1) {
-      left: 8px;
-      animation: loading-dots1 0.6s infinite;
-    }
-    .loading-dots div:nth-child(2) {
-      left: 8px;
-      animation: loading-dots2 0.6s infinite;
-    }
-    .loading-dots div:nth-child(3) {
-      left: 32px;
-      animation: loading-dots2 0.6s infinite;
-    }
-    .loading-dots div:nth-child(4) {
-      left: 56px;
-      animation: loading-dots3 0.6s infinite;
-    }
-    @keyframes loading-dots1 {
-      0% { transform: scale(0); }
-      100% { transform: scale(1); }
-    }
-    @keyframes loading-dots3 {
-      0% { transform: scale(1); }
-      100% { transform: scale(0); }
-    }
-    @keyframes loading-dots2 {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(24px, 0); }
+    /* Placeholder para imagens que não carregarem */
+    .movie-card-img {
+      background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
     }
   </style>
 </head>
@@ -510,7 +542,7 @@
   <!-- Content Wrapper -->
   <div class="content-wrapper">
 
-    <!-- Content Header -->
+    <!-- Content Header - ALINHADO À ESQUERDA -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-4">
@@ -526,13 +558,12 @@
       </div>
     </section>
 
-    <!-- Main content -->
+    <!-- Main content - ESTRUTURA REORGANIZADA -->
     <section class="content">
       <div class="container-fluid">
-        <div class="row">
-
-          <!-- COLUNA ESQUERDA – AGENDAMENTO -->
-          <div class="col-lg-4 col-md-5 mb-4">
+        <!-- SEÇÃO 1: AGENDAR FILME -->
+        <div class="row mb-5">
+          <div class="col-12">
             <div class="custom-card">
               <div class="card-header-custom">
                 <h3>
@@ -543,75 +574,89 @@
               <!-- Formulário de Agendamento -->
               <form role="form" action="" method="post">
                 <div class="card-body-custom">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label><i class="fas fa-user" style="color: var(--primary);"></i>Seu Nome</label>
+                        <input type="text" class="form-control-custom form-control" name="nome_usuario" required placeholder="Digite seu nome completo">
+                      </div>
 
-                  <div class="form-group">
-                    <label><i class="fas fa-user" style="color: var(--primary);"></i>Seu Nome</label>
-                    <input type="text" class="form-control-custom form-control" name="nome_usuario" required placeholder="Digite seu nome completo">
+                      <div class="form-group">
+                        <label><i class="fas fa-film" style="color: var(--primary);"></i>Filme Escolhido</label>
+                        <select class="form-select-custom form-select" name="filme_escolhido" required>
+                          <option value="">Selecione um filme</option>
+                          <option value="THUNDERBOLTS">THUNDERBOLTS</option>
+                          <option value="BAILARINA">BAILARINA</option>
+                          <option value="AINDA ESTOU AQUI">AINDA ESTOU AQUI</option>
+                          <option value="ANORA">ANORA</option>
+                          <option value="COMO TREINAR O SEU DRAGÃO">COMO TREINAR O SEU DRAGÃO</option>
+                          <option value="PECADORES">PECADORES</option>
+                          <option value="OUTRO">Outro filme</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label><i class="fas fa-clock" style="color: var(--primary);"></i>Horário da Sessão</label>
+                        <select class="form-select-custom form-select" name="horario" required>
+                          <option value="">Selecione o horário</option>
+                          <option value="14:00">14:00</option>
+                          <option value="16:30">16:30</option>
+                          <option value="19:00">19:00</option>
+                          <option value="21:30">21:30</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label><i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>Local/Cinema</label>
+                        <select class="form-select-custom form-select" name="local" required>
+                          <option value="">Selecione o cinema</option>
+                          <option value="Cinema Shopping Center">Cinema Shopping Center</option>
+                          <option value="Cinema Downtown">Cinema Downtown</option>
+                          <option value="Cinema Plaza">Cinema Plaza</option>
+                          <option value="Cinema Metrópole">Cinema Metrópole</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label><i class="fas fa-tag" style="color: var(--primary);"></i>Gênero do Filme</label>
+                        <select class="form-select-custom form-select" name="genero" required>
+                          <option value="">Selecione o gênero</option>
+                          <option value="Ação">Ação</option>
+                          <option value="Aventura">Aventura</option>
+                          <option value="Comédia">Comédia</option>
+                          <option value="Drama">Drama</option>
+                          <option value="Suspense">Suspense</option>
+                          <option value="Terror">Terror</option>
+                          <option value="Ficção Científica">Ficção Científica</option>
+                          <option value="Romance">Romance</option>
+                          <option value="Animação">Animação</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label><i class="fas fa-certificate" style="color: var(--primary);"></i>Classificação</label>
+                        <select class="form-select-custom form-select" name="classificacao" required>
+                          <option value="">Selecione a classificação</option>
+                          <option value="Livre">Livre</option>
+                          <option value="10 anos">10 anos</option>
+                          <option value="12 anos">12 anos</option>
+                          <option value="14 anos">14 anos</option>
+                          <option value="16 anos">16 anos</option>
+                          <option value="18 anos">18 anos</option>
+                        </select>
+                      </div>
+                    </div>
                   </div>
 
-                  <div class="form-group">
-                    <label><i class="fas fa-film" style="color: var(--primary);"></i>Filme Escolhido</label>
-                    <select class="form-select-custom form-select" name="filme_escolhido" required>
-                      <option value="">Selecione um filme</option>
-                      <option value="THUNDERBOLTS">THUNDERBOLTS</option>
-                      <option value="BAILARINA">BAILARINA</option>
-                      <option value="OUTRO">Outro filme</option>
-                    </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label><i class="fas fa-clock" style="color: var(--primary);"></i>Horário da Sessão</label>
-                    <select class="form-select-custom form-select" name="horario" required>
-                      <option value="">Selecione o horário</option>
-                      <option value="14:00">14:00</option>
-                      <option value="16:30">16:30</option>
-                      <option value="19:00">19:00</option>
-                      <option value="21:30">21:30</option>
-                    </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label><i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>Local/Cinema</label>
-                    <select class="form-select-custom form-select" name="local" required>
-                      <option value="">Selecione o cinema</option>
-                      <option value="Cinema Shopping Center">Cinema Shopping Center</option>
-                      <option value="Cinema Downtown">Cinema Downtown</option>
-                      <option value="Cinema Plaza">Cinema Plaza</option>
-                      <option value="Cinema Metrópole">Cinema Metrópole</option>
-                    </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label><i class="fas fa-tag" style="color: var(--primary);"></i>Gênero do Filme</label>
-                    <select class="form-select-custom form-select" name="genero" required>
-                      <option value="">Selecione o gênero</option>
-                      <option value="Ação">Ação</option>
-                      <option value="Aventura">Aventura</option>
-                      <option value="Comédia">Comédia</option>
-                      <option value="Drama">Drama</option>
-                      <option value="Suspense">Suspense</option>
-                      <option value="Terror">Terror</option>
-                      <option value="Ficção Científica">Ficção Científica</option>
-                      <option value="Romance">Romance</option>
-                    </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label><i class="fas fa-certificate" style="color: var(--primary);"></i>Classificação</label>
-                    <select class="form-select-custom form-select" name="classificacao" required>
-                      <option value="">Selecione a classificação</option>
-                      <option value="Livre">Livre</option>
-                      <option value="10 anos">10 anos</option>
-                      <option value="12 anos">12 anos</option>
-                      <option value="14 anos">14 anos</option>
-                      <option value="16 anos">16 anos</option>
-                      <option value="18 anos">18 anos</option>
-                    </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label><i class="fas fa-clock" style="color: var(--primary);"></i>Duração (minutos)</label>
-                    <input type="number" class="form-control-custom form-control" name="duracao" required placeholder="Ex: 120" min="60" max="240">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label><i class="fas fa-clock" style="color: var(--primary);"></i>Duração (minutos)</label>
+                        <input type="number" class="form-control-custom form-control" name="duracao" required placeholder="Ex: 120" min="60" max="240">
+                      </div>
+                    </div>
                   </div>
 
                   <input type="hidden" name="id_user" value="<?php echo $id_user ?>">
@@ -640,12 +685,20 @@
                 $id_usuario = $_POST['id_user'];
 
                 // Definir a imagem do cartaz baseado no filme escolhido
+                $cartaz = "padrao_filme.png"; // padrão
+                
                 if ($filme_escolhido == "THUNDERBOLTS") {
-                  $cartaz = "thunderbolts_fixed.jpg";
+                  $cartaz = "Thunderbolts.jpg";
                 } elseif ($filme_escolhido == "BAILARINA") {
-                  $cartaz = "bailarina_fixed.jpg";
-                } else {
-                  $cartaz = "padrao_filme.png";
+                  $cartaz = "Bailarina.jpeg";
+                } elseif ($filme_escolhido == "AINDA ESTOU AQUI") {
+                  $cartaz = "AindaEstouAqui.jpg";
+                } elseif ($filme_escolhido == "ANORA") {
+                  $cartaz = "Anora.jpg";
+                } elseif ($filme_escolhido == "COMO TREINAR O SEU DRAGÃO") {
+                  $cartaz = "ComoTreinaroSeuDragao.jpg";
+                } elseif ($filme_escolhido == "PECADORES") {
+                  $cartaz = "Pecadores.jpg";
                 }
 
                 $cad = "INSERT INTO tb_filmes (titulo, duracao, genero, classificacao, cartaz, id_user, nome_usuario, horario, local_cinema)
@@ -678,12 +731,12 @@
 
             </div>
           </div>
+        </div>
 
-          <!-- COLUNA DIREITA – FILMES DISPONÍVEIS E AGENDAMENTOS -->
-          <div class="col-lg-8 col-md-7">
-
-            <!-- SEÇÃO: FILMES DISPONÍVEIS -->
-            <div class="custom-card mb-4">
+        <!-- SEÇÃO 2: FILMES DISPONÍVEIS -->
+        <div class="row mb-5">
+          <div class="col-12">
+            <div class="custom-card">
               <div class="card-header-custom" style="background: rgba(229, 9, 20, 0.1);">
                 <h3>
                   <i class="fas fa-film me-2"></i>Filmes em Cartaz
@@ -691,10 +744,10 @@
               </div>
 
               <div class="card-body-custom">
-                <div class="row">
+               <div class="row">
 
-                  <!-- CARD DO THUNDERBOLTS - FIXO -->
-                  <div class="col-md-6 mb-4">
+                  <!-- THUNDERBOLTS -->
+                  <div class="col-md-6 col-lg-4 mb-4">
                     <div class="movie-card movie-highlight">
                       <div class="movie-card-img-container">
                         <img src="/index/2k25-main/filmes/Thunderbolts.jpg" 
@@ -707,10 +760,9 @@
 
                       <div class="card-body d-flex flex-column" style="background: transparent;">
                         <div class="movie-info mt-auto">
-                          <p class="mb-2 small"><i class="fas fa-user me-2" style="color: var(--secondary);"></i><b>Disponível</b></p>
-                          <p class="mb-2 small"><i class="fas fa-clock me-2" style="color: var(--primary);"></i><b>Duração:</b> 142 min</p>
-                          <p class="mb-2 small"><i class="fas fa-tag me-2" style="color: var(--secondary);"></i><b>Gênero:</b> Ação, Aventura</p>
-                          <p class="mb-2 small"><i class="fas fa-certificate me-2" style="color: #f39c12;"></i><b>Classificação:</b> 14 anos</p>
+                          <p class="mb-2"><i class="fas fa-clock me-2" style="color: var(--primary);"></i><b>Duração:</b> 142 min</p>
+                          <p class="mb-2"><i class="fas fa-tag me-2" style="color: var(--secondary);"></i><b>Gênero:</b> Ação, Aventura</p>
+                          <p class="mb-2"><i class="fas fa-certificate me-2" style="color: #f39c12;"></i><b>Classificação:</b> 14 anos</p>
                         </div>
                       </div>
 
@@ -722,8 +774,8 @@
                     </div>
                   </div>
 
-                  <!-- CARD DA BAILARINA - FIXO -->
-                  <div class="col-md-6 mb-4">
+                  <!-- BAILARINA -->
+                  <div class="col-md-6 col-lg-4 mb-4">
                     <div class="movie-card movie-highlight">
                       <div class="movie-card-img-container">
                         <img src="/index/2k25-main/filmes/Bailarina.jpeg" 
@@ -736,10 +788,121 @@
 
                       <div class="card-body d-flex flex-column" style="background: transparent;">
                         <div class="movie-info mt-auto">
-                          <p class="mb-2 small"><i class="fas fa-user me-2" style="color: var(--secondary);"></i><b>Disponível</b></p>
-                          <p class="mb-2 small"><i class="fas fa-clock me-2" style="color: var(--primary);"></i><b>Duração:</b> 118 min</p>
-                          <p class="mb-2 small"><i class="fas fa-tag me-2" style="color: var(--secondary);"></i><b>Gênero:</b> Ação, Suspense</p>
-                          <p class="mb-2 small"><i class="fas fa-certificate me-2" style="color: #f39c12;"></i><b>Classificação:</b> 16 anos</p>
+                          <p class="mb-2"><i class="fas fa-clock me-2" style="color: var(--primary);"></i><b>Duração:</b> 118 min</p>
+                          <p class="mb-2"><i class="fas fa-tag me-2" style="color: var(--secondary);"></i><b>Gênero:</b> Ação, Suspense</p>
+                          <p class="mb-2"><i class="fas fa-certificate me-2" style="color: #f39c12;"></i><b>Classificação:</b> 16 anos</p>
+                        </div>
+                      </div>
+
+                      <div class="card-footer border-top-0" style="background: transparent; border-top: 1px solid var(--card-border); padding: 1rem;">
+                        <div class="d-flex justify-content-center">
+                          <span class="badge bg-success">EM CARTAZ</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- AINDA ESTOU AQUI -->
+                  <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="movie-card movie-highlight">
+                      <div class="movie-card-img-container">
+                        <img src="/index/2k25-main/filmes/AindaEstouAqui.jpg" 
+                            class="movie-card-img" 
+                            alt="Ainda Estou Aqui">
+                        <div class="movie-card-overlay d-flex align-items-end">
+                          <h5 class="movie-card-title">AINDA ESTOU AQUI</h5>
+                        </div>
+                      </div>
+
+                      <div class="card-body d-flex flex-column" style="background: transparent;">
+                        <div class="movie-info mt-auto">
+                          <p class="mb-2"><i class="fas fa-clock me-2" style="color: var(--primary);"></i><b>Duração:</b> 135 min</p>
+                          <p class="mb-2"><i class="fas fa-tag me-2" style="color: var(--secondary);"></i><b>Gênero:</b> Drama, Suspense</p>
+                          <p class="mb-2"><i class="fas fa-certificate me-2" style="color: #f39c12;"></i><b>Classificação:</b> 14 anos</p>
+                        </div>
+                      </div>
+
+                      <div class="card-footer border-top-0" style="background: transparent; border-top: 1px solid var(--card-border); padding: 1rem;">
+                        <div class="d-flex justify-content-center">
+                          <span class="badge bg-success">EM CARTAZ</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ANORA -->
+                  <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="movie-card movie-highlight">
+                      <div class="movie-card-img-container">
+                        <img src="/index/2k25-main/filmes/Anora.jpg" 
+                            class="movie-card-img" 
+                            alt="Anora">
+                        <div class="movie-card-overlay d-flex align-items-end">
+                          <h5 class="movie-card-title">ANORA</h5>
+                        </div>
+                      </div>
+
+                      <div class="card-body d-flex flex-column" style="background: transparent;">
+                        <div class="movie-info mt-auto">
+                          <p class="mb-2"><i class="fas fa-clock me-2" style="color: var(--primary);"></i><b>Duração:</b> 128 min</p>
+                          <p class="mb-2"><i class="fas fa-tag me-2" style="color: var(--secondary);"></i><b>Gênero:</b> Drama, Romance</p>
+                          <p class="mb-2"><i class="fas fa-certificate me-2" style="color: #f39c12;"></i><b>Classificação:</b> 16 anos</p>
+                        </div>
+                      </div>
+
+                      <div class="card-footer border-top-0" style="background: transparent; border-top: 1px solid var(--card-border); padding: 1rem;">
+                        <div class="d-flex justify-content-center">
+                          <span class="badge bg-success">EM CARTAZ</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- COMO TREINAR O SEU DRAGÃO -->
+                  <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="movie-card movie-highlight">
+                      <div class="movie-card-img-container">
+                        <img src="/index/2k25-main/filmes/ComoTreinaroSeuDragao.jpg" 
+                            class="movie-card-img" 
+                            alt="Como Treinar o Seu Dragão">
+                        <div class="movie-card-overlay d-flex align-items-end">
+                          <h5 class="movie-card-title">COMO TREINAR O SEU DRAGÃO</h5>
+                        </div>
+                      </div>
+
+                      <div class="card-body d-flex flex-column" style="background: transparent;">
+                        <div class="movie-info mt-auto">
+                          <p class="mb-2"><i class="fas fa-clock me-2" style="color: var(--primary);"></i><b>Duração:</b> 104 min</p>
+                          <p class="mb-2"><i class="fas fa-tag me-2" style="color: var(--secondary);"></i><b>Gênero:</b> Animação, Aventura</p>
+                          <p class="mb-2"><i class="fas fa-certificate me-2" style="color: #f39c12;"></i><b>Classificação:</b> Livre</p>
+                        </div>
+                      </div>
+
+                      <div class="card-footer border-top-0" style="background: transparent; border-top: 1px solid var(--card-border); padding: 1rem;">
+                        <div class="d-flex justify-content-center">
+                          <span class="badge bg-success">EM CARTAZ</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- PECADORES -->
+                  <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="movie-card movie-highlight">
+                      <div class="movie-card-img-container">
+                        <img src="/index/2k25-main/filmes/Pecadores.jpg" 
+                            class="movie-card-img" 
+                            alt="Pecadores">
+                        <div class="movie-card-overlay d-flex align-items-end">
+                          <h5 class="movie-card-title">PECADORES</h5>
+                        </div>
+                      </div>
+
+                      <div class="card-body d-flex flex-column" style="background: transparent;">
+                        <div class="movie-info mt-auto">
+                          <p class="mb-2"><i class="fas fa-clock me-2" style="color: var(--primary);"></i><b>Duração:</b> 112 min</p>
+                          <p class="mb-2"><i class="fas fa-tag me-2" style="color: var(--secondary);"></i><b>Gênero:</b> Terror, Suspense</p>
+                          <p class="mb-2"><i class="fas fa-certificate me-2" style="color: #f39c12;"></i><b>Classificação:</b> 18 anos</p>
                         </div>
                       </div>
 
@@ -754,8 +917,12 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
 
-            <!-- SEÇÃO: MEUS AGENDAMENTOS -->
+        <!-- SEÇÃO 3: MEUS AGENDAMENTOS -->
+        <div class="row">
+          <div class="col-12">
             <div class="custom-card">
               <div class="card-header-custom" style="background: rgba(39, 174, 96, 0.1);">
                 <h3>
@@ -782,13 +949,25 @@
                   <div class="col-md-6 mb-4">
                     <div class="movie-card">
                       <div class="movie-card-img-container">
-                        <?php if ($f->titulo == "THUNDERBOLTS"): ?>
-                          <img src="/index/2k25-main/filmes/Thunderbolts.jpg" class="movie-card-img" alt="Thunderbolts">
-                        <?php elseif ($f->titulo == "BAILARINA"): ?>
-                          <img src="/index/2k25-main/filmes/Bailarina.jpeg" class="movie-card-img" alt="Bailarina">
-                        <?php else: ?>
-                          <img src="../img/cartaz/<?php echo $f->cartaz ?>" class="movie-card-img" alt="<?php echo $f->titulo ?>">
-                        <?php endif; ?>
+                        <?php 
+                        $imagePath = "/index/2k25-main/filmes/";
+                        if ($f->titulo == "THUNDERBOLTS") {
+                          $imagePath .= "Thunderbolts.jpg";
+                        } elseif ($f->titulo == "BAILARINA") {
+                          $imagePath .= "Bailarina.jpeg";
+                        } elseif ($f->titulo == "AINDA ESTOU AQUI") {
+                          $imagePath .= "AindaEstouAqui.jpg";
+                        } elseif ($f->titulo == "ANORA") {
+                          $imagePath .= "Anora.jpg";
+                        } elseif ($f->titulo == "COMO TREINAR O SEU DRAGÃO") {
+                          $imagePath .= "ComoTreinaroSeuDragao.jpg";
+                        } elseif ($f->titulo == "PECADORES") {
+                          $imagePath .= "Pecadores.jpg";
+                        } else {
+                          $imagePath = "../img/cartaz/" . $f->cartaz;
+                        }
+                        ?>
+                        <img src="<?php echo $imagePath ?>" class="movie-card-img" alt="<?php echo $f->titulo ?>">
                         <div class="movie-card-overlay d-flex align-items-end">
                           <h5 class="movie-card-title"><?php echo $f->titulo ?></h5>
                         </div>
@@ -796,11 +975,11 @@
 
                       <div class="card-body d-flex flex-column" style="background: transparent;">
                         <div class="movie-info mt-auto">
-                          <p class="mb-2 small"><i class="fas fa-user me-2" style="color: var(--secondary);"></i><b>Reservado por:</b> <?php echo $f->nome_usuario ?></p>
-                          <p class="mb-2 small"><i class="fas fa-clock me-2" style="color: var(--primary);"></i><b>Horário:</b> <?php echo $f->horario ?></p>
-                          <p class="mb-2 small"><i class="fas fa-map-marker-alt me-2" style="color: #e74c3c;"></i><b>Local:</b> <?php echo $f->local_cinema ?></p>
-                          <p class="mb-2 small"><i class="fas fa-tag me-2" style="color: var(--secondary);"></i><b>Gênero:</b> <?php echo $f->genero ?></p>
-                          <p class="mb-2 small"><i class="fas fa-certificate me-2" style="color: #f39c12;"></i><b>Classificação:</b> <?php echo $f->classificacao ?></p>
+                          <p class="mb-2"><i class="fas fa-user me-2" style="color: var(--secondary);"></i><b>Reservado por:</b> <?php echo $f->nome_usuario ?></p>
+                          <p class="mb-2"><i class="fas fa-clock me-2" style="color: var(--primary);"></i><b>Horário:</b> <?php echo $f->horario ?></p>
+                          <p class="mb-2"><i class="fas fa-map-marker-alt me-2" style="color: #e74c3c;"></i><b>Local:</b> <?php echo $f->local_cinema ?></p>
+                          <p class="mb-2"><i class="fas fa-tag me-2" style="color: var(--secondary);"></i><b>Gênero:</b> <?php echo $f->genero ?></p>
+                          <p class="mb-2"><i class="fas fa-certificate me-2" style="color: #f39c12;"></i><b>Classificação:</b> <?php echo $f->classificacao ?></p>
                         </div>
                       </div>
 
@@ -829,7 +1008,7 @@
                       echo '<div class="col-12 text-center py-4">
                               <i class="fas fa-film fa-3x mb-3" style="color: var(--gray);"></i>
                               <h4 style="color: var(--gray);">Nenhum agendamento encontrado</h4>
-                              <p style="color: var(--gray);">Faça seu primeiro agendamento usando o formulário ao lado.</p>
+                              <p style="color: var(--gray);">Faça seu primeiro agendamento usando o formulário acima.</p>
                             </div>';
                     }
 
@@ -843,11 +1022,9 @@
                 </div>
               </div>
             </div>
-
           </div>
-          <!-- FIM COLUNA DIREITA -->
-
         </div>
+
       </div>
     </section>
 
